@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SmartPager | AI-Powered Planning Assistant</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<!-- <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span> -->
+							<h1 id="title">SmartPager</h1>
+							<p>Columbia University<br>
+								EECS E4764 Fall'25<br>
+								Artificial Intelligence of Things<br>
+								Team 4
+							</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+
+								Prologue's nav expects links in one of two formats:
+
+								1. Hash link (scrolls to a different section within the page)
+
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+							-->
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Abstract</span></a></li>
+								<li><a href="#motivation" id="motivation-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Motivation</span></a></li>
+								<li><a href="#system" id="system-link" class="skel-layers-ignoreHref"><span class="icon fa-th">System</span></a></li>
+								<li><a href="#results" id="results-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Results</span></a></li>
+								<li><a href="#references" id="references-link" class="skel-layers-ignoreHref"><span class="icon fa-th">References</span></a></li>
+								<li><a href="#team" id="team-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Our Team</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/3leEcj4d1dM" frameborder="0" allowfullscreen></iframe>
+
+								<h2 class="alt">SmartPager</h2>
+								<p>Your AI-Powered Planning Assistant
+</p>
+								<p>SmartPager is a physical pager that listens, understands, and schedules. Audio captured via Raspberry Pi hardware is transcribed with Whisper, interpreted by GPT-4 into events, tasks, and study blocks, and then placed by an optimization-driven scheduler around fixed calendar items. It writes back to Google Calendar so the e-ink screen always shows your next item and today's agenda.</p>
+
+
+							<footer>
+								<a href="#motivation" class="button scrolly">Motivation</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="motivation" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Motivation</h2>
+							</header>
+
+							<p align="left">Students burn time juggling calendars, Courseworks, and to-do lists; small slips turn into conflicts. We’re chasing planning that feels effortless and dependable: hands-full voice capture on the pager, distinct handling of fixed events vs tasks vs study blocks, auto-resolves when users move things, and matching agendas on the e-ink screen and Google Calendar. It’s meant to be reliable every day, keeping up with shifting deadlines without extra overhead.</p>
+
+
+
+						</div>
+					</section>
+
+
+					<section id="system" class="three">
+						<div class="container">
+
+							<header>
+								<h2>System</h2>
+							</header>
+
+							<article class="item">
+								<a href="images/How%20It%20Works%20Diagram.png" class="image fit"><img src="images/How%20It%20Works%20Diagram.png" alt="SmartPager end-to-end flow diagram" /></a>
+							</article>
+
+							<article class="item">
+								<a href="images/Types%20of%20Events.png" class="image fit"><img src="images/Types%20of%20Events.png" alt="Types of events and study blocks" /></a>
+							</article>
+
+							<p align="left">SmartPager blends embedded hardware, cloud intelligence, and calendar sync into a single loop. Voice is captured on-device, processed in the cloud, scheduled, and mirrored back to both Google Calendar and the pager's display.</p>
+
+							<h3 align="left">Architecture</h3>
+
+							<p align="left">1) Audio Capture: Raspberry Pi 4B with I2S mic plus push-to-talk button and status LED.<br>2) Interpret: Flask/FastAPI server transcribes with Whisper and structures events/tasks/study blocks with GPT-4.<br>3) Schedule/Optimize: Hard events (fixed, mirrored from Google Calendar), tasks (e.g., homework with due dates, durations, priorities), and study blocks (movable, created to satisfy tasks) are placed by a rule-based/LLM scheduler. It enforces hard events as immovable constraints so study blocks never overlap them. When users shift study blocks in Google Calendar, the scheduler recomputes placements to fill gaps and preserve deadlines.<br>4) Sync: Bidirectional sync keeps hard events and study blocks aligned with Google Calendar.<br>5) Display: E-ink pager shows "Next" and "Today's Agenda" with lift-to-wake and scrolling for the full agenda.<br>6) Web UI: Browser GUI to review and play uploads, see metadata, and trigger reprocessing.<br>7) Audio Output: Speaker playback of short, LLM-planned summaries to inform the user what just happened (e.g., confirmation, next steps).</p>
+
+
+							<h3 align="left">Technical Components</h3>
+
+							<ul align="left">
+								<li>Hardware: Raspberry Pi 4B, SPH0645 I2S mic, push-to-talk button (GPIO 11), status LED (GPIO 26), optional e-ink display.</li>
+								<li>Firmware: Python client (`pi/audio_capture_rpi.py`) handles GPIO, in-memory WAV encoding, and HTTP upload.</li>
+								<li>Backend: Flask/FastAPI server (`audioCapture_server.py`) for uploads, Whisper STT, GPT-based parsing, scheduler, and Google Calendar sync.</li>
+								<li>Data: Google Calendar is the user-facing source for hard events and study blocks; scheduler state tracks tasks and block metadata for optimization.</li>
+							</ul>
+
+							<article class="item">
+								<a href="images/Hardware.png" class="image fit"><img src="images/Hardware.png" alt="SmartPager hardware prototype with button, LED, and I2S mic" /></a>
+								<header>
+									<h3>Hardware Prototype</h3>
+								</header>
+							</article>
+
+
+							<h3 align="left">Prototype</h3>
+
+							<p align="left">The current build records up to 30 seconds of audio, auto-detects microphones, provides LED feedback for recording/upload states, and posts directly to the server. The server hosts a simple web UI to view, play, and download recordings, and exposes API endpoints for agenda queries and reprocessing.</p>
+
+
+
+						</div>
+					</section>
+
+
+					<section id="results" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Results</h2>
+							</header>
+
+							<p align="left">SmartPager reliably captures and uploads voice notes, converts them to structured tasks/events, and schedules study blocks that respect hard calendar events. Agenda endpoints (`/api/agenda/next`, `/api/agenda/today`) serve the merged view to the pager client.</p>
+
+							<div class="row">
+								<div class="6u 12u$(mobile)">
+									<article class="item">
+										<div class="video-wrapper">
+											<iframe width="100%" height="360" src="https://www.youtube.com/embed/i5Fnn89Izmo" title="SmartPager - Beginner Demo!" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<header>
+											<h3>SmartPager - Beginner Demo!</h3>
+											<p>This demo shows the full voice-driven loop: querying Monday’s agenda on the e-ink pager, adding a study block, deleting an existing event, handling a dentist request that conflicts with the new study block, proposing and accepting a new time, and rebooking—demonstrating capture → LLM parsing → conflict-aware scheduling → calendar update → on-device display.</p>
+										</header>
+									</article>
+								</div>
+								<div class="6u 12u$(mobile)">
+									<article class="item">
+										<div class="video-wrapper">
+											<iframe width="100%" height="360" src="https://www.youtube.com/embed/uH9AnAnkG9o" title="SmartPager Demo - Display Options" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<header>
+											<h3>SmartPager Demo - Display Options</h3>
+											<p>This demo shows the pager pulling up day-by-day agendas (Mon–Sun) on the e-ink display, adding a study block (Mon 3–4pm), deleting an existing event (Mon dinner), detecting a hard conflict (dentist vs study block), suggesting a new time, and re-booking the appointment—all while navigating schedules with the on-device buttons and scrolling feature.</p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="6u 12u$(mobile)">
+									<article class="item">
+										<div class="video-wrapper">
+											<iframe width="100%" height="360" src="https://www.youtube.com/embed/CGqLE2PZI8c" title="SmartPager Demo - Syncing with Google Calendar" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<header>
+											<h3>SmartPager Demo - Syncing with Google Calendar</h3>
+											<p>This demo proves live, bidirectional sync: spoken requests create new events in Google Calendar, events can be moved (gym shifted to 5 p.m.), and cancellations propagate (signals and circuits removed), with changes appearing immediately in the user's personal Google Calendar account.</p>
+										</header>
+									</article>
+								</div>
+								<div class="6u 12u$(mobile)">
+									<article class="item">
+										<div class="video-wrapper">
+											<iframe width="100%" height="360" src="https://www.youtube.com/embed/_FsDf-abvic" title="SmartPager Demo - Resolving Conflicts" frameborder="0" allowfullscreen></iframe>
+										</div>
+										<header>
+											<h3>SmartPager Demo - Resolving Conflicts</h3>
+											<p>This demo shows the system catching a lunch request that conflicts with a fixed dentist appointment, proposing a new time, and booking it after the user agrees while the web UI (our lightweight calendar view) reflects the resolved schedule.</p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+
+
+						</div>
+					</section>
+
+					<section id="references" class="three">
+						<div class="container">
+
+							<header>
+								<h2>References</h2>
+							</header>
+
+							<ul align="left">
+								<li><a href="https://platform.openai.com/docs/guides/speech-to-text">OpenAI Whisper speech-to-text API</a></li>
+								<li><a href="https://platform.openai.com/docs/models/gpt-4">OpenAI GPT-4 model documentation</a></li>
+								<li><a href="https://developers.google.com/calendar/api">Google Calendar API</a></li>
+								<li><a href="https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/overview">Adafruit SPH0645 I2S microphone guide</a></li>
+							</ul>
+
+						</div>
+					</section>
+
+
+				<!-- About Me -->
+					<section id="team" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Our Team</h2>
+							</header>
+
+							<!-- <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a> -->
+
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/Marcus Lam.jpg" alt="Marcus Lam" /></a>
+										<header>
+											<h3>Marcus Lam, Computer Engineering '27</h3>
+											<p><a href="https://www.linkedin.com/in/marcus-lam-maker/">LinkedIn</a></p>
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/Sid Raykar.jpg" alt="Sid Raykar" /></a>
+										<header>
+											<h3>Sid Raykar, Electrical Engineering '27</h3>
+											<p><a href="https://www.linkedin.com/in/siddharth-raykar-203204304/">LinkedIn</a></p>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/Apurva Reddy.jpg" alt="Apurva Reddy" /></a>
+										<header>
+											<h3>Apurva Reddy, Computer Engineering '26</h3>
+											<p><a href="https://www.linkedin.com/in/apurva-reddy-44813b1a5/">LinkedIn</a></p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/Sarah Hagan.jpg" alt="Sarah Hagan" /></a>
+										<header>
+											<h3>Sarah Hagan, Computer Science '27</h3>
+											<p><a href="https://www.linkedin.com/in/sarah-a-hagan/">LinkedIn</a></p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p align="left">
+								<strong>Marcus Lam: </strong>sml2286@columbia.edu</br>
+								<strong>Sid Raykar: </strong>sr4102@columbia.edu</br>
+								<strong>Apurva Reddy: </strong>akr2177@columbia.edu</br>
+								<strong>Sarah Hagan: </strong>sah2267@columbia.edu</br>
+							</br>
+								<strong>Columbia University </strong><a href="http://www.ee.columbia.edu">Department of Electrical Engineering</a><br>
+								<!-- <strong>Class Website:</strong>
+									<a href="https://edblogs.columbia.edu/eecs4764-001-2019-3/">Columbia University EECS E4764 Fall '22 IoT</a></br> -->
+								<strong>Instructor:</strong> <a href="https://www.engineering.columbia.edu/faculty-staff/directory/xiaofan-fred-jiang">Professsor Xiaofan (Fred) Jiang</a><br>							</p>
+
+
+							<!-- <form method="post" action="#">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form> -->
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; IoT Project | All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

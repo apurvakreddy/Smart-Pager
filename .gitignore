@@ -1,0 +1,14 @@
+# Schedule data
+server/schedule/**/*.json
+server/schedule/week_meta.json
+
+# Output and recordings
+server/output/*
+server/recordings/*
+
+# Python
+__pycache__/
+*.pyc
+
+# System
+.DS_Store

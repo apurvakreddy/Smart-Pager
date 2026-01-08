@@ -1,0 +1,8 @@
+sounddevice
+requests
+RPi.GPIO
+pygame>=2.5.0  # For audio playback through I2S
+smbus
+smbus2
+luma.oled
+pigpio

@@ -1,0 +1,43 @@
+---
+alwaysApply: true
+---
+
+# SmartPager Project
+
+## Overview
+
+SmartPager is an IoT voice-controlled scheduling system with two components:
+
+### Raspberry Pi Client (`pi/`)
+
+-   Records voice commands via **I2S SPH0645 MEMS microphone**
+-   Uploads audio to server for processing
+-   Receives and plays TTS schedule summaries via **I2S MAX98357A amplifier** to speaker
+-   Button-triggered recording with LED status indicator
+
+### Server (`server/`)
+
+-   Receives audio uploads from Raspberry Pi
+-   Transcribes speech using Whisper (STT)
+-   Interprets schedule with LLM (GPT-4)
+-   Optimizes daily calendar using OR-Tools constraint solver
+-   Generates natural language summary
+-   Returns TTS audio (Piper) and optimized schedule to client
+
+## Hardware Configuration
+
+| Component   | Interface  | Purpose                |
+| ----------- | ---------- | ---------------------- |
+| SPH0645     | I2S Input  | MEMS microphone (3.3V) |
+| MAX98357A   | I2S Output | Mono amplifier (5V)    |
+| 8Ω Speaker  | Analog     | TTS audio playback     |
+| Push Button | GPIO 11    | Recording trigger      |
+| LED         | GPIO 26    | Status indicator       |
+
+## Development Guidelines
+
+1. **Audio Pipeline**: All audio capture uses I2S (no USB mic assumptions)
+2. **Server Communication**: REST API over HTTP, audio as base64 in JSON responses
+3. **TTS Integration**: Server generates TTS, client plays through I2S amp
+4. **Error Handling**: Graceful degradation if TTS unavailable
+5. **Resource Management**: Clean up temp files after TTS playback

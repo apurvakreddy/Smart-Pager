@@ -1,0 +1,30 @@
+# SmartPager Server Dependencies
+
+# Web Server
+Flask==3.0.0
+Werkzeug==3.0.1
+python-dotenv==1.0.0
+
+# Speech-to-Text
+openai-whisper==20231117
+
+# LLM Integration
+openai>=2.0.0
+
+# Schedule Optimization
+ortools==9.8.3296
+
+# Text-to-Speech
+piper-tts>=1.2.0
+
+# Audio processing
+numpy>=1.21.0
+torch==2.3.1
+
+#calendering
+google-api-python-client>=2.70.0
+google-auth>=2.20.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+python-dateutil>=2.8.2
+apscheduler>=3.10.1   # optional if you prefer APScheduler vs thread loop
